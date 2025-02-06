@@ -4,6 +4,9 @@ RUN cd vprofile-personal-project && mvn install
 
 FROM tomcat:10-jdk21
 
+LABEL "Author"="Durodola"
+LABEL "project"="vprofile"
+
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 COPY --from=build vprofile-personal-project/target/vprofile-v2.war /usr/local/tomcat/webapps/ROOT.war
