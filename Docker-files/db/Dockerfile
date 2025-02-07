@@ -6,3 +6,4 @@ LABEL "project"="vprofile"
 ENV MYSQL_ROOT_PASSWORD="vprodbpass"
 
 COPY db_backup.sql /docker-entrypoint-initdb.d/db_backup.sql
+COPY accountsdb.sql /docker-entrypoint-initdb.d/accountsdb.sql
