@@ -1,6 +1,7 @@
+version: '3.8'
 services:
   vprodb:
-    image: nowdurodola/vprodb:1.0.0
+    image: nowdurodola/vprodb
     container_name: vprodb
     ports:
       - "3306:3306"
@@ -11,34 +12,32 @@ services:
 
   vprocache01:
     image: memcached
-    container_name: vprocache01
     ports:
-      - 11211:11211
+      - "11211:11211"
 
   vpromq01:
     image: rabbitmq
-    container_name: vpromq01
     ports:
-      - 5672:5672
+      - "5672:5672"
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
-  
+
   vproapp:
-    image: nowdurodola/vproapp:1.0.0
+    image: nowdurodola/vproapp
     container_name: vproapp
     ports:
       - "8080:8080"
     volumes:
-      - vprodbdata:/usr/local/tomcat/webapps
-  
+      - vproappdata:/usr/local/tomcat/webapps
+    
   vproweb:
-    image: nowdurodola/vproweb:1.0.0
-    container_name: vprofileweb
+    image: nowdurodola/vproweb
+    container_name: vproweb
     ports:
       - "80:80"
 
 volumes:
-  vproappdata: {}
-  vprodbdata: {}
-
+   vprodbdata: {}
+   vproappdata: {}
+  
