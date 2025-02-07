@@ -1,6 +1,6 @@
 services:
   vprodb:
-    image: nowdurodola/vprofiledb
+    image: nowdurodola/vprodb:1.0.0
     container_name: vprodb
     ports:
       - "3306:3306"
@@ -25,7 +25,7 @@ services:
       - RABBITMQ_DEFAULT_PASS=guest
   
   vproapp:
-    image: nowdurodola/vprofileapp
+    image: nowdurodola/vproapp:1.0.0
     container_name: vproapp
     ports:
       - "8080:8080"
@@ -33,7 +33,7 @@ services:
       - vprodbdata:/usr/local/tomcat/webapps
   
   vproweb:
-    image: nowdurodola/vproweb
+    image: nowdurodola/vproweb:1.0.0
     container_name: vprofileweb
     ports:
       - "80:80"
